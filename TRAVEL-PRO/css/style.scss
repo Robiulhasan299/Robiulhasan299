@@ -1,0 +1,889 @@
+
+// google font face stard here 
+@font-face {
+    font-family:'DancingScript-SemiBold.ttf' ;
+    src: url('../assest/g-fonts/DancingScript-SemiBold.ttf');
+}
+@font-face {
+    font-family:'Oswald-VariableFont_wght.ttf' ;
+    src: url('../assest/g-fonts/Oswald-VariableFont_wght.ttf');
+}
+// google font face end here 
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    transition:  .4s linear;
+    -webkit-transition: .4s linear;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-family:'Oswald-VariableFont_wght.ttf' ;
+}
+
+
+// all color here 
+ 
+$black:#10221b;
+$white:#fff;
+$light-bg:#eee;
+$green: #219150;
+$border:.2rem solid $black;
+$box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+
+
+ ::selection{
+     background-color: $green;
+     color: $white;
+ }
+
+// SLICK SLIDER STARD HERE =================
+.slick-arrow{
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    background:transparent;
+    color: $green;
+    border: 0;
+    padding: 1rem;
+    font-size:6.5rem;
+    cursor: pointer;
+    font-weight: bolder;
+
+    &:hover{
+        color: red;
+       transform: rotate(360deg);
+       transition: all .3s ease-out;
+    }
+
+}
+
+.slick-prev{
+    left: 20px;
+}
+.slick-next{
+    right: 20px;
+}
+.slick-dots{
+    list-style: none;
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    display: flex;
+    transform: translateX(-50%);
+}
+.slick-dots li button{
+    border: 0;
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    border-radius: 50%;
+    cursor: pointer;
+    color: $white;
+    margin-right: .8rem;
+    background-color: $black;
+}
+.slick-dots li.slick-active button{
+    background-color: $green;
+    color:$black ;
+}
+// SLICK SLIDER PRODUCT EXTRA STYLE HERE  =================
+.shop-sliders
+.slick-arrow{
+    top: 40%;
+    background-color: transparent;
+    color: $green;
+    font-size: 4.4rem;
+    transform: none!important;
+}
+.shop-sliders .slick-dots{
+    bottom: -50px;
+}
+
+.reviews-slide .slick-arrow,
+.blog-slider .slick-arrow,
+.clients-slide .slick-arrow{
+
+    display: none!important;
+}
+// SLICK SLIDER END HERE =================
+
+ 
+.heading{
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 2.5rem;
+}
+
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    border: $border;
+    color: $black;
+    cursor: pointer;
+    background-color: none;
+    padding: 1rem 3rem;
+    font-size: 1.7rem;
+    font-family:'DancingScript-SemiBold.ttf' ;
+    font-weight: bolder;
+    letter-spacing: 2px;
+
+    &:hover{
+        background: $black;
+        color: $white;
+    }
+}
+h1,h2,h3,h4,h5,h6{ font-family:'DancingScript-SemiBold.ttf' ;}
+ 
+
+@mixin grid($val) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($val,1fr));
+    gap:1.5rem;
+}
+ 
+html{
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 5rem;
+  
+    &::-webkit-scrollbar{width: 1rem;}
+    &::-webkit-scrollbar-track{background:$white;}
+    &::-webkit-scrollbar-thumb{ background:$black;}
+}
+
+
+
+section{padding: 5rem 9%;}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 9%;
+    z-index: 1000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+
+&.active{
+    background-color: $white;
+    box-shadow: $box-shadow;
+}
+
+
+            .logo{
+                margin-right: auto;
+               font-size: 2.5rem;
+               color:$black;
+               font-weight: bolder;
+            }
+             i{color: $green;}
+           .navbar a {
+               margin-left: 2rem;
+               font-size: 1.7rem;
+               color: var(--black);
+               font-weight: bolder;
+              
+        }
+        #nav-close{
+            font-size: 4rem;
+            cursor: pointer;
+           color: $black;
+           display: none;
+        }
+       .navbar a:hover{color:$green;}
+        .icons a,.icons div{
+            font-size: 2.5rem;
+            margin-left: 2rem;
+            cursor: pointer;
+            color:$black;
+            &:hover{color:$green;
+            }
+        }
+        #menu-btn{
+            display: none;
+        }
+
+}
+.search-from{
+    position: absolute;
+    top: 0;left: 0;height: 100%;width: 100%;
+    background-color:rgba(0, 0, 0, 0.767) ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transform: translateY(-110%);
+
+     &.active{   transform: translateY(0%);}
+
+    #close-search{
+        position: absolute;
+        top: 2rem;right: 2.5rem;
+        cursor: pointer;
+        color:$white;
+        font-size: 5rem;
+
+
+        &:hover{
+            color: $green;
+        }
+    }
+form{
+    width: 70rem;
+    padding:0 2rem;
+    padding-bottom: 2rem;
+    border-bottom: .2rem solid $white;
+    display: flex;
+    align-items: center;
+
+
+    input{
+        width: 100%;
+        font-size:2rem ;
+        color: $white;
+        text-transform: none;
+        background: none;
+
+        &::placeholder{
+            color: #aaa;
+        }
+    }
+    label{
+        font-size:3rem ;
+        cursor: pointer;
+        color: $white;
+
+        &:hover{
+            color: $green;
+        }
+    }
+}
+   
+}
+
+.home{
+    padding: 0;
+
+    .box{
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background-size: cover!important;
+        background-position:  center!important;
+        justify-content: flex-end;
+        padding: 2rem 9%;
+
+
+        &.second{
+            justify-content: flex-start;
+        }
+
+        .content{
+        width: 50rem;
+        }
+        span{
+            font-size: 4rem;
+            color: $black;
+        }
+        h3{
+            font-size: 6rem;
+            color: $green;
+            padding-top: .5rem;
+            text-transform: uppercase;
+        }
+        p{line-height: 2;
+        color: $black;
+        font-size: 1.5rem;
+        padding: 1rem 0;}
+    }
+
+}
+
+
+ 
+
+
+// catagory section stard here 
+.catagory{
+    .box-container{
+        @include grid(29rem);
+
+
+        .box{
+         text-align: center;
+         padding: 2rem;
+        }
+        img{
+            height: 20rem;
+            width: 20rem;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+        h3{
+            font-size: 2rem;
+            color: $green;
+        }
+        p{
+            font-size: 1.6rem;
+            color: $black;
+            padding: 1rem 0rem;
+            line-height: 2;
+        }
+    }
+}
+ 
+// aboutsection stard here 
+.about{
+    background-color: $light-bg;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    .images{
+        flex: 1 1 42rem;
+        padding-right: 5rem;
+        padding-bottom: 5rem;
+        img{
+            width: 100%;
+            box-shadow: 4rem 4rem 0 rgb(223, 213, 213) ;
+            border-radius: 5px;
+        }
+    }
+    .contant{
+        flex :1 1 42rem;
+
+
+        h3{
+            font-size: 3rem;
+            color: $green;
+        }
+        p{
+            font-size: 1.5rem;
+            color: $black;
+            padding: 1rem 0rem;
+            line-height: 2;
+        }
+    }
+}
+
+
+// shop sectopn stard here 
+
+.shop{
+
+
+    .slid{
+        width: 35rem;
+        border: $border;
+        margin-right: 1rem;
+        cursor: pointer;
+
+        &:hover{
+            border-color: $green;
+        }
+
+        &:hover .images .icons{
+            transform: translateY(0rem);
+        }
+
+        .images{
+        position: relative;
+         overflow: hidden;  
+         height: 30rem;
+         width: 100%;
+
+      
+         img{
+             height: 100%;
+             width: 100%;
+             object-fit: cover;
+         }
+         .icons{
+              
+             position: absolute;
+             bottom: 2rem; left: 0;
+             text-align: center;
+             z-index: 1000;
+             transform: translateY(7rem);
+
+            a{
+                height: 4.4rem;
+                width: 4.4rem;
+               line-height: 4.4rem;
+               font-size: 1.7rem;
+               background-color: $black;
+               color: $white;
+               margin: 0 .2rem;
+               text-align: center;
+
+
+               &:hover{
+                   background-color: $green;
+                    
+               }
+            }
+
+         }
+              }
+    }
+    .content{
+        padding: 1rem 0;
+        text-align: center;
+
+
+        h3{
+            font-size: 2rem;
+            color: $green;
+        }
+        .price{
+            padding: .5rem 0;
+            padding-top: .5rem;
+            font-size: 1.5rem;
+            color: $black
+        }
+        .stars{
+            font-size: 1.7rem;
+            color: $green;
+        }
+    }
+}
+
+
+// pakages section stard here 
+
+
+.pakages{
+    background-color: $light-bg;
+
+    .container{
+        @include grid(32rem);
+
+        .box{
+        text-align: center;
+        background-color: $white;
+        border: $border;
+        box-shadow: $box-shadow;
+        border-radius: .5rem;
+
+        &:hover{
+            background: $black;
+
+            .content > *{
+                color: $white;
+            }
+            .btn{
+                border-color: $white;
+
+                &:hover{
+                    background-color: $white;
+                    color: $black;
+                }
+            }
+        }
+
+        .images{
+            height: 25rem;
+            overflow: hidden;
+            padding: 2rem;
+
+            padding-bottom: 0;
+            border-radius: .5rem;
+
+            img{
+                height: 100%;
+
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        .content{
+            padding:2rem ;
+
+
+            h3{
+                font-size: 2rem;
+                color: $black;
+            }
+            P{
+                font-size: 1.2rem;
+                color: $black;
+                padding:1rem 0 ;
+                line-height: 2;
+            }
+        }
+        }
+    }
+}
+
+
+// services section stard here
+
+.services{
+      background-color: $light-bg;
+
+      .container{
+          @include grid(31rem);
+
+          .box{
+              text-align:center;
+              padding: 2rem;
+              border: $border;
+              border-radius: .5rem;
+
+              &:hover  {
+                   background-color: $black;
+
+                   img{filter: invert(1);}
+                   p{
+                       color: $white;
+                   }
+
+                   .btn{
+                       border-color: $white;
+                       color: $white;
+
+                       &:hover{
+                           background-color: $white;
+                           color: $black;
+                       }
+                   }
+                   
+              }
+
+
+              img{
+                  height: 10rem;
+                  margin-bottom: 1rem;
+              }
+              h3{
+                  font-size: 2rem;
+                  color: $green;
+              }
+              p{
+                  font-size: 1.2rem;
+                  color: $black;
+                  padding: 1rem 0;
+
+                  line-height: 2;
+              }
+          }
+      }
+
+}
+
+// reviews section stard here 
+
+.reviews{
+    .slide{
+
+
+        .text{
+            padding: 2rem;
+            font-size: 1.1rem;
+            font-style: italic;
+            background-color: $light-bg;
+            border-radius: .5rem;
+            color: $black;
+            line-height: 2;
+            position: relative;
+            z-index: 0;
+            margin-bottom: 3rem;
+            margin-right: 1rem;
+
+             &::before{
+                 content: '';
+                 position: absolute;
+                 bottom: -1.5rem;
+                 left: .7rem;
+                 height: 3rem;
+                 width: 3rem;
+                 background : $light-bg;
+                 transform: rotate(45deg);
+             }
+
+        }
+        .user{
+            display: flex;align-items: center;
+            gap: 1rem;
+
+            img{
+                height: 7rem;
+                width: 7rem;
+                border-radius: 50%;
+            }
+            h3{
+                font-size: 2rem;
+                color: $black;
+            }
+            span{
+                color: $green;
+                font-size: 1.6rem;
+            }
+        }
+    }
+}
+
+
+
+// blog section starad here 
+
+.blog{ 
+ 
+    .slide{
+        text-align: center;
+        width: 35rem;
+        padding: 2rem;
+          
+        img{
+            height: 25rem;
+            width: 100%;
+            object-fit: cover;
+            border-radius: .5rem;
+        }
+        .icons{
+            background-color: $black;
+            border-radius: .5rem;
+            padding: 1rem 0;
+            position: relative;
+            top: -2rem;
+            display: inline-block;
+
+
+            a{
+                font-style: 1.5rem;
+                color: $white;
+                margin:0 1rem ;
+
+
+                &:hover{
+                color: $green;
+                }
+                   i{
+                       padding-right: .5rem;
+                       color: $green;
+                   }
+        }
+    }
+  h3{
+      font-size: 2rem;
+      color: $black;
+  }
+  p{
+      font-style: 1.4rem;
+      padding-right: 1rem 0;
+      line-height: 2;
+      color: $black;
+  }
+                
+}
+
+}
+
+// newsletter section start here 
+
+.newsletter{
+    background-color: $light-bg;
+    
+
+
+
+    .content{
+        text-align: center;
+        max-width: 60rem;
+        margin: 1rem auto;
+        text-align: center;
+
+        p{
+            font-size: 1.5rem;
+            line-height: 2;
+            color: $black;
+
+        }
+        form{
+            margin-top: 2rem;
+            background:$white ;
+            border-radius: 5rem;
+            border: $border;
+            padding: .7rem;
+            display: flex;
+             
+        input{
+            background: none;
+        }
+
+            .email{
+                width: 100%;
+                background-color: none;
+                text-transform: none;
+                font-size: 1.6rem;
+                color: $black;
+                padding:  0 1.4rem;
+            }
+            .btn{
+                margin-top: 0;
+                border-radius: 5rem;
+                background-color: $black;
+                color: $white;
+
+
+                &:hover{
+                    background : none;
+                    color: $black;
+                }
+
+            }
+        }
+    }
+}
+
+// clients sectio start here
+
+.clients{
+    .clients-slide{
+
+        .slide{
+            text-align: center;
+
+
+            img{
+                height: 12rem;
+            }
+        }
+    }
+}
+
+// footer section starat here 
+
+.footer{
+    width: 100%;
+   
+    background:  url(../assest/images/footer-bg.jpg)no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+
+    .box-container{
+        @include grid(25rem);
+
+
+        .box{
+            h3{
+                font-size: 2rem;
+                padding: 1.5rem 0;
+                color: $white;
+            }
+            a{
+                display: block;
+                font-size: 1.4rem;
+                color: $white;
+                padding: 1rem 0;
+
+
+                &:hover{
+                    color: $green;
+    
+    
+                    i{
+                        padding-right: 2rem;
+                    }
+                }
+            }
+            i{
+                color: $green;
+                padding-right: .8rem;
+            }
+
+          
+        }
+        
+    }
+    .credit{
+       
+        text-align: center;
+        margin-top: 2rem;
+        padding: 1rem;
+        padding-top: 2rem;
+        font-size: 2rem;
+        color: $white;
+
+
+        span{
+            color: $green;
+        }
+    }
+    
+}
+
+
+
+
+
+
+
+
+// media query stard here 
+
+@media (max-width:1200px) {
+    .header{padding: 2rem;}
+    section{padding: 3rem 2rem;}
+}
+@media (max-width:991px){
+    html{font-size: 55%;
+    scroll-padding-top: 7rem;
+    }
+}
+
+@media (max-width:768px){
+    .shop-sliders .slick-dots{display: none!important;}
+
+    .header{
+        #menu-btn{
+            display: inline-block;
+        }
+        .navbar{
+            position: fixed;
+            top: 0;left: -110%;
+            background:$white;
+            z-index: 1000;
+            width: 35rem;
+            height: 100%;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: center;
+      
+            &.active{
+                left: 0;
+                box-shadow: 0 0 0 100vw rgba(0,0,0,.8);
+            }
+            a{
+                margin: 1rem 0;
+               font-size: 2rem; 
+            }
+            #nav-close{display: block;
+                       position: absolute;
+                      top: 1rem;right: 1.5rem; }
+
+        }
+    }
+    
+}
+
+@media (max-width:450px){
+    html{font-size: 50%;}
+}
